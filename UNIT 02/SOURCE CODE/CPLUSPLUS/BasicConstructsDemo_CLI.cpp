@@ -36,9 +36,7 @@ void multiplySelectionExample(int day) {
 
 
 
-
 //While loop
-
 void whileLoopExample() {
 	int i = 1;
 	while (i < 5) {
