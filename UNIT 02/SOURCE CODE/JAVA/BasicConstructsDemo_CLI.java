@@ -67,7 +67,8 @@ public class BasicConstructsDemo_CLI {
 	System.out.println();
     }
     public static void main(String[] args) {
-       //run selection code
+    
+	//run selection code
 	singleSelectionExample(10, 5);
 	doubleSelectionExample(5, 10);
 	multiplySelectionExample(4);
