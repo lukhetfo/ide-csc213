@@ -5,7 +5,7 @@
 /*                                                                                   */
 /*************************************************************************************/
 
-
+#include "pch.h"
 #include <iostream>
 
 using namespace std;
@@ -70,84 +70,6 @@ int recursiveIndexOfSmallest(int a[], int startIndex, int endIndex)
 	// Return minimum of current and remaining. 
 	return (a[startIndex] < a[smallIndex]) ? startIndex : smallIndex;
 }
-
-
-/******************************************************************************/
-/*                               SELECTION SORT                               */
-/******************************************************************************/
-/* PSEUDOCODE                                                                 */
-/* BEGIN                                                                      */
-/*    let A[0..n-1] be an array of n values indexed from 0 to n-1             */
-/*    for each array index value i  starting from 0 to n-1 do                 */
-/*    BEGIN                                                                   */
-/* 	      find index of smallest value (say t) in the range A[i..n-1];        */
-/* 		  Swap the values A[i] and A[t]                                       */
-/* 	  END                                                                     */
-/* END                                                                        */
-/******************************************************************************/
-
-//utlity function to swap any two values
-void swap(int& xp, int& yp)
-{
-	int temp = xp;
-	xp = yp;
-	yp = temp;
-}
-
-//ITERATIVE SELECTION SORT FUNCTION
-void selectionSort(int arr[], int n)
-{
-	int i, j, min_idx;
-
-	// One by one move boundary of unsorted subarray 
-	for (i = 0; i < n - 1; i++)
-	{
-		// Find the minimum element in unsorted array 
-		min_idx = i;
-		for (j = i + 1; j < n; j++)
-			if (arr[j] < arr[min_idx])
-				min_idx = j;
-
-		// Swap the found minimum element with the first element 
-		swap(arr[min_idx], arr[i]);
-	}
-}
-
-
-
-//REVISED ITERATIVE SELECTION SORT FUNCTION-- uses indexOfSmallest function 
-void SelectionSort2(int arr[], int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		// Find the minimum element in unsorted array 
-		int min_idx = indexOfSmallest(arr, i, n - 1);
-
-		// Swap the found minimum element with the first element 
-		swap(arr[min_idx], arr[i]);
-	}
-}
-
-
-
-//ITERATIVE SELECTION SORT FUNCTION
-void recursiveSelectionSort(int a[], int n, int startIndex = 0)
-{
-	// Return when starting index and size n are same 
-	if (startIndex == n)
-		return;
-
-	// calling indexOfSmallest function for minimum index 
-	int k = indexOfSmallest(a, startIndex, n - 1);
-
-	// Swapping when index nd minimum index are not same 
-	if (k != startIndex)
-		swap(a[k], a[startIndex]);
-
-	// Recursively calling selection sort function 
-	recursiveSelectionSort(a, n, startIndex + 1);
-}
-
 
 
 
@@ -251,20 +173,16 @@ int main()
 
 	recursivePrintArray(arr, 0, n - 1);         // calls recursive printArray
 	cout << endl;
+	
 	cout << linearSearch(arr, 5, 25) << endl;   // calls iterative linearSearch
-
 	cout << endl;
+
 	cout << recursiveLinearSearch(arr, 0, n - 1, 25) << endl; // calls recursive linearSearch
-
-	recursiveSelectionSort(arr, n);            // calls recursive selection sort
-	cout << "Sorted array: \n";
-	printArray(arr, n);
-
 	cout << endl;
+
 	cout << binarySearch(arr, 0, n - 1, 25) << endl; // calls recursive binary search
-
-
 	cout << endl;
+
 	cout << iterativeBinarySearch(arr, 0, n - 1, 25) << endl; // calls iterative binary search
 
 	system("pause");
