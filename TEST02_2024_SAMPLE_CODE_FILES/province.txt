@@ -1,0 +1,10 @@
+PCODE	PID  	PNAME
+ZA1  	WC  	Western_Cape
+ZA2  	EC  	Eastern_Cape
+ZA3  	NC  	Nothern_Cape
+ZA4  	FS  	Free_State
+ZA5  	KZN  	KwaZulu_Natal
+ZA6  	NW  	North_West
+ZA7  	GT  	Gauteng
+ZA8  	MP  	Mpumalanga
+ZA9  	LIM  	Limpopo
