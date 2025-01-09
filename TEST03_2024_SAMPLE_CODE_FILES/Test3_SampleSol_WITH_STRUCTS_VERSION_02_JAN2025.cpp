@@ -17,8 +17,49 @@ const int SEP_LINE_W = CODE_W + TITLE_W + 4*MARK_W+6;
 // setw formating may also be ommitted
 using namespace std;
 
-//QUESTION 1 -- pseudocode
-//AS PER STUDENT RESPONSE
+//QUESTION 1 -- sample pseudocode
+/*
+INPUTS:  COURSE data file, ENROLMENT data file)
+begin
+	open COURSE data file for reading
+	remove header line in COURSE data file
+	write report header text to standard output
+	initialize overall count total(number of enrolments) to 0
+	Loop through each record in COURSE data file
+	begin
+
+		read  course_code, description, caRate, examRate;
+		write course_code and  description to standard output
+		initialize CA_total to 0;
+		initialize EXAM_total to 0;
+		initialize enrolment student count to 0;
+
+		open ENROLMENT data file for reading
+		remove header line in  ENROLMENT data file
+		Loop through each record in ENROLMENT data file
+		begin
+			read  enrolment_code,sid, caMark, examMark;
+			if (enrolment_code matches course_code)
+			begin
+				increment CA_total by caMark;
+				increment EXAM_total by examMark;
+				increment student enrolment count by 1;
+			end
+		end ENROLMENT data file loop
+		close ENROLMENT data file
+		increment overall count_total by student enrolment count
+
+		calculate CA_average as CA_total / student enrolment count;
+		calculate EXAM_average as CA_total / student enrolment count;
+		write student enrolment count, CA_average and EXAM_avearge to
+			standard output
+		   go to new output line
+
+	end COURSE data file loop
+	close COURSE data file
+	write report footer text plus overall total number of students
+end
+*/
 
 
 //QUESTION 2 -- SOLUTION USING STRUCTS AND OVERLOADED OPERATORS
